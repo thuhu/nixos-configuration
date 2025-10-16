@@ -5,6 +5,7 @@ let
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 	configs = {
 		qtile = "qtile";
+		rofi = "rofi";
 	};
 in
 
@@ -17,10 +18,15 @@ in
 		userEmail = "Desmond.thuhu@outlook.com";
 	};
 	home.stateVersion = "25.05";
+
+	programs.firefox.enable = true;
+
 	programs.bash = {
 		enable = true;
 		shellAliases = {
 			btw = "echo I use nixos, btw";
+			ls = "ls -al";
+			nrss = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
 		};
 	};
 
@@ -38,5 +44,6 @@ in
 		nil
 		nixpkgs-fmt
 		gcc
+		rofi
 	];
 }
