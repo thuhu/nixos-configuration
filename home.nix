@@ -6,7 +6,8 @@ let
 	configs = {
 		qtile = "qtile";
 		rofi = "rofi";
-    		alacritty = "alacritty";
+   		alacritty = "alacritty";
+		nvim = "nvim";
 	};
 in
 
@@ -50,5 +51,6 @@ in
 		gcc
 		rofi
 		xwallpaper
+		brightnessctl
 	];
 }
