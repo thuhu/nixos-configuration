@@ -9,8 +9,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-btw"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hostName = "nixos-btw";
+  networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Amsterdam";
   services.xserver = {
