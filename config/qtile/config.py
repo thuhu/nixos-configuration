@@ -159,14 +159,14 @@ screens = [
         top=bar.Bar(
             widgets = [
                 widget.Spacer(length = 8),
-                widget.Image(
+                #widget.Image(
                     #filename = "~/.config/qtile/icons/tonybtw.png",
-                    filename = "~/.config/qtile/icons/debian.png",
-                    scale = "False",
-                    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("qtilekeys-yad")},
-                ),
+                #    filename = "~/.config/qtile/icons/debian.png",
+                #    scale = "False",
+                #    mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("qtilekeys-yad")},
+                #),
                 widget.Prompt(
-                    font = "Ubuntu Mono",
+                    font = "JetBrainsMono Nerd Font Propo Bold",
                     fontsize=14,
                     foreground = colors[1]
                 ),
@@ -210,13 +210,13 @@ screens = [
                     padding = 8,
                     max_chars = 40
                 ),
-                widget.GenPollText(
-                    update_interval = 300,
-                    func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-                    foreground = colors[3],
-                    padding = 8, 
-                    fmt = '{}',
-                ),
+                # widget.GenPollText(
+                #     update_interval = 300,
+                #     func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
+                #     foreground = colors[3],
+                #     padding = 8, 
+                #     fmt = '{}',
+                # ),
                 sep,
                 widget.CPU(
                     foreground = colors[4],
@@ -279,9 +279,9 @@ screens = [
                 widget.Spacer(length = 8),
             ],
             # 24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_width=[2, 2, 2, 2],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"],  # Borders are magenta
-            margin=[0, 0, 1, 0], 
+            margin=[8, 4, 4, 4], 
             size=30
         ),
     ),
