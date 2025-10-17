@@ -6,25 +6,28 @@
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "sd_mod" "sr_mod" ];
+  
+  boot.initrd.availableKernelModules = [ "xhci_pci" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/48d65e96-156d-433c-a15c-d281569a048f";
+    { device = "/dev/disk/by-uuid/06b4482b-3343-424f-9b47-acaa4de3b165";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B198-6E4C";
+    { device = "/dev/disk/by-uuid/63F5-8062";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/6fec40aa-193b-4849-92f0-408f33cc31d8"; }
+    [ { device = "/dev/disk/by-uuid/e57ee7fd-de5e-426c-9f76-504bc2ef1290"; }
     ];
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -34,5 +37,11 @@
   # networking.interfaces.eth0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  nixpkgs.config.allowUnfree = true;
+
   virtualisation.hypervGuest.enable = true;
+
+  hardware.enableAllFirmware = true;
+
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
