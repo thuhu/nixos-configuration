@@ -6,6 +6,7 @@ let
 	configs = {
 		qtile = "qtile";
 		rofi = "rofi";
+    		alacritty = "alacritty";
 	};
 in
 
@@ -28,6 +29,9 @@ in
 			ls = "ls -al";
 			nrss = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-btw";
 		};
+		initExtra = ''
+		  export PS1="\[\e[38;5;75m\]\u@\h \[\e[38;5;113m\]\w \[\e[38;5;189m\]\$ \[\e[0m\]"
+		'';
 	};
 
 	xdg.configFile = builtins.mapAttrs
@@ -45,5 +49,6 @@ in
 		nixpkgs-fmt
 		gcc
 		rofi
+		xwallpaper
 	];
 }
