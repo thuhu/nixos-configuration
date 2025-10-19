@@ -50,7 +50,6 @@ in
 		nixpkgs-fmt
 		gcc
 		rofi
-		xwallpaper
 		brightnessctl
 	];
 }

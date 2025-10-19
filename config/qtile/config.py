@@ -243,22 +243,23 @@ screens = [
                     fmt = 'Disk: {}',
                     visible_on_warn = False,
                 ),
-                # sep,
-                # widget.Battery(
-                #     foreground=colors[6],           # pick a palette slot you like
-                #     padding=8,
-                #     update_interval=5,
-                #     format='{percent:2.0%} {char} {hour:d}:{min:02d}',  # e.g. "73% ⚡ 1:45"
-                #     fmt='Bat: {}',
-                #     charge_char='',               # shown while charging
-                #     discharge_char='',            # Nerd icon; use '-' if you prefer plain ascii
-                #     full_char='✔',                 # when at/near 100%
-                #     unknown_char='?',
-                #     empty_char='!', 
-                #     mouse_callbacks={
-                #         'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e upower -i $(upower -e | grep BAT)'),
-                #     },
-                # ),
+                sep,
+                widget.Battery(
+                    font="JetBrainsMono Nerd Font Propo Bold",
+                    foreground=colors[6],           # pick a palette slot you like
+                    padding=8,
+                    update_interval=5,
+                    format='{percent:2.0%} {char} {hour:d}:{min:02d}',  # e.g. "73% ⚡ 1:45"
+                    fmt='Bat: {}',
+                    charge_char='',               # shown while charging
+                    discharge_char='',            # Nerd icon; use '-' if you prefer plain ascii
+                    full_char='✔',                 # when at/near 100%
+                    unknown_char='?',
+                    empty_char='!', 
+                    mouse_callbacks={
+                        'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e upower -i $(upower -e | grep BAT)'),
+                    },
+                ),
                 sep,
                 widget.Volume(
                     foreground = colors[7],
@@ -281,8 +282,10 @@ screens = [
             # 24,
             # border_width=[2, 2, 2, 2],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"],  # Borders are magenta
-            margin=[8, 4, 4, 4], 
-            size=30
+            margin=[8, 8, 8, 8], 
+            size=30,
+            wallpaper='~/Downloads/fast_car.jpg',
+            wallpaper_mode='fill',
         ),
     ),
 ]
